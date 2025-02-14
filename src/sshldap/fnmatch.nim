@@ -1,6 +1,8 @@
 import strutils
 import re
 import unicode
+import std/logging
+#import chronicles
 
 proc fnmatchEscapeRe(s: string): string =
     ## Internal proc. Escapes `s` so that it is matched verbatim when used as a regular
@@ -70,6 +72,10 @@ proc fnmatch*(filename: string, pattern: string): bool =
 
     let f: string = unicode.toLower(filename)
     let p: string = unicode.toLower(pattern)
+    let pt: string = translate(p)
 
+    info "f",f
+    info "p", p
+    info "pt", pt
     return re.match(f, re(translate(p)))
 
