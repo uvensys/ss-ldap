@@ -15,6 +15,6 @@ Build dependencies Debian: libldap2-dev
 
 Tests
 ```
-+nimble install unittest2
-+nim c -r tests/test.nim
+nimble install unittest2
+nim c -r tests/test.nim
 ```
